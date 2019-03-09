@@ -8,4 +8,4 @@ Service for better technical inverview,
 * Denys Ivanenko
 * Stanislav Kachanov
 * Serhii Shemet
-* Kyrychenko Volodymyr
+* Volodymyr Kyrychenko
