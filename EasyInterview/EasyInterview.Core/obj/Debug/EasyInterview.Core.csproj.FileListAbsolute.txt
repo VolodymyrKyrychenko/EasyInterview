@@ -1,6 +1,0 @@
-C:\Users\Сергей\source\repos\EasyInterview\EasyInterview.Core\bin\Debug\EasyInterview.Core.dll
-C:\Users\Сергей\source\repos\EasyInterview\EasyInterview.Core\bin\Debug\EasyInterview.Core.pdb
-C:\Users\Сергей\source\repos\EasyInterview\EasyInterview.Core\obj\Debug\EasyInterview.Core.csprojAssemblyReference.cache
-C:\Users\Сергей\source\repos\EasyInterview\EasyInterview.Core\obj\Debug\EasyInterview.Core.csproj.CoreCompileInputs.cache
-C:\Users\Сергей\source\repos\EasyInterview\EasyInterview.Core\obj\Debug\EasyInterview.Core.dll
-C:\Users\Сергей\source\repos\EasyInterview\EasyInterview.Core\obj\Debug\EasyInterview.Core.pdb
