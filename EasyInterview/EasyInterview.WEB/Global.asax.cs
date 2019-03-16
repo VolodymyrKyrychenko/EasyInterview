@@ -4,6 +4,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using EasyInterview.Contracts.BLL;
 using EasyInterview.Contracts.DAL;
+using EasyInterview.WEB.AutoMapper;
 using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Mvc;
@@ -18,6 +19,8 @@ namespace EasyInterview.WEB
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            AutoMapperConfiguration.Config();
 
             NinjectModule gameModule = new DataModule();
             NinjectModule serviceModule = new ServiceModule();

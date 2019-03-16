@@ -1,10 +1,13 @@
-﻿using EasyInterview.Core.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace EasyInterview.BLL.Interfaces
 {
-    public interface IService
+    public interface IService<TEntity> where TEntity : class
     {
-        IEnumerable<Test> GetAll();
+        void Create(TEntity item);
+        IEnumerable<TEntity> GetAll();
+        TEntity Get(int id);
+        void Update(TEntity item);
+        void Delete(int id);
     }
 }

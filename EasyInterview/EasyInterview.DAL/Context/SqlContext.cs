@@ -5,7 +5,7 @@ namespace EasyInterview.DAL.Context
 {
     public class SqlContext : DbContext
     {
-        public DbSet<Test> Tests { get; set; }
+        public DbSet<TaskEntity> Tasks { get; set; }
 
         static SqlContext()
         {

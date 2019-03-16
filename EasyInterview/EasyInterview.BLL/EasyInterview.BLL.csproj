@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\TestService.cs" />
+    <Compile Include="Services\TaskService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyInterview.Core\EasyInterview.Core.csproj">
