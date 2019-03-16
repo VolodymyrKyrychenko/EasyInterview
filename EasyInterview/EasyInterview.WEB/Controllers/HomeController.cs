@@ -1,23 +1,12 @@
-﻿using System.Linq;
-using EasyInterview.BLL.Interfaces;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace EasyInterview.WEB.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IService _service;
-
-        public HomeController(IService service)
-        {
-            _service = service;
-        }
-
         public ActionResult Index()
         {
-            var test = _service.GetAll().FirstOrDefault();
-
-            return View(test);
+            return View();
         }
 
         public ActionResult About()

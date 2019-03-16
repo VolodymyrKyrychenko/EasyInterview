@@ -6,11 +6,11 @@ namespace EasyInterview.DAL.Unit
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public IRepository<Test> Tests { get; }
+        public IRepository<TaskEntity> Tasks { get; }
 
-        public UnitOfWork(IRepository<Test> tests)
+        public UnitOfWork(IRepository<TaskEntity> tasks)
         {
-            Tests = tests;
+            Tasks = tasks;
         }
     }
 }

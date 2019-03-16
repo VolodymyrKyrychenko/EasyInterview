@@ -15,7 +15,7 @@ namespace EasyInterview.Contracts.DAL
         {
             Bind<SqlContext>().To<SqlContext>().InRequestScope();
 
-            Bind<IRepository<Test>>().To<TestRepository>();
+            Bind<IRepository<TaskEntity>>().To<TaskRepository>();
 
             Bind<IUnitOfWork>().To<UnitOfWork>();
         }

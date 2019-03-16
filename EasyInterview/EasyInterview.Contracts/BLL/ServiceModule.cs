@@ -1,5 +1,6 @@
 ﻿using EasyInterview.BLL.Interfaces;
 using EasyInterview.BLL.Services;
+using EasyInterview.Core.Entities;
 using Ninject.Modules;
 
 namespace EasyInterview.Contracts.BLL
@@ -8,7 +9,7 @@ namespace EasyInterview.Contracts.BLL
     {
         public override void Load()
         {
-            Bind<IService>().To<TestService>();
+            Bind<IService<TaskEntity>>().To<TaskService>();
         }
     }
 }
