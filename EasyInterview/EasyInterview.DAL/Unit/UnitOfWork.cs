@@ -6,9 +6,9 @@ namespace EasyInterview.DAL.Unit
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public IRepository<TaskEntity> Tasks { get; }
+        public IRepository<Exercise> Tasks { get; }
 
-        public UnitOfWork(IRepository<TaskEntity> tasks)
+        public UnitOfWork(IRepository<Exercise> tasks)
         {
             Tasks = tasks;
         }

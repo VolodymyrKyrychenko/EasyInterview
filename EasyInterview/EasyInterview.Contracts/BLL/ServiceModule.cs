@@ -9,7 +9,7 @@ namespace EasyInterview.Contracts.BLL
     {
         public override void Load()
         {
-            Bind<IService<TaskEntity>>().To<TaskService>();
+            Bind<IService<Exercise>>().To<TaskService>();
         }
     }
 }

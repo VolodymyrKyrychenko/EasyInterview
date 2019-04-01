@@ -5,6 +5,6 @@ namespace EasyInterview.DAL.Interfaces
 {
     public interface IUnitOfWork
     {
-        IRepository<TaskEntity> Tasks { get; }
+        IRepository<Exercise> Tasks { get; }
     }
 }

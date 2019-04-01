@@ -41,7 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\TaskEntity.cs" />
+    <Compile Include="Entities\Candidate.cs" />
+    <Compile Include="Entities\Change.cs" />
+    <Compile Include="Entities\Company.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\Interview.cs" />
+    <Compile Include="Entities\Library.cs" />
+    <Compile Include="Entities\Tag.cs" />
+    <Compile Include="Entities\Exercise.cs" />
+    <Compile Include="Entities\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

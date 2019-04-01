@@ -9,9 +9,9 @@ namespace EasyInterview.WEB.Controllers
 {
     public class TaskController : Controller
     {
-        private readonly IService<TaskEntity> _service;
+        private readonly IService<Exercise> _service;
 
-        public TaskController(IService<TaskEntity> service)
+        public TaskController(IService<Exercise> service)
         {
             _service = service;
         }
@@ -20,7 +20,7 @@ namespace EasyInterview.WEB.Controllers
         {
             var tasks = _service.GetAll();
 
-            var tasksView = Mapper.Map<IEnumerable<TaskEntity>, List<TaskModelView>>(tasks);
+            var tasksView = Mapper.Map<IEnumerable<Exercise>, List<TaskModelView>>(tasks);
 
             return View(tasksView);
         }
@@ -36,7 +36,7 @@ namespace EasyInterview.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                var task = Mapper.Map<TaskModelView, TaskEntity>(taskView);
+                var task = Mapper.Map<TaskModelView, Exercise>(taskView);
 
                 _service.Create(task);
 
@@ -51,7 +51,7 @@ namespace EasyInterview.WEB.Controllers
         {
             var task = _service.Get(id);
 
-            var taskView = Mapper.Map<TaskEntity, TaskModelView>(task);
+            var taskView = Mapper.Map<Exercise, TaskModelView>(task);
 
             return View(taskView);
         }
@@ -77,7 +77,7 @@ namespace EasyInterview.WEB.Controllers
         {
             var task = _service.Get(id);
 
-            var taskView = Mapper.Map<TaskEntity, TaskModelView>(task);
+            var taskView = Mapper.Map<Exercise, TaskModelView>(task);
 
             return View(taskView);
         }

@@ -5,7 +5,7 @@ using EasyInterview.DAL.Interfaces;
 
 namespace EasyInterview.BLL.Services
 {
-    public class TaskService : IService<TaskEntity>
+    public class TaskService : IService<Exercise>
     {
         private readonly IUnitOfWork _unit;
 
@@ -14,26 +14,26 @@ namespace EasyInterview.BLL.Services
             _unit = unit;
         }
 
-        public void Create(TaskEntity item)
+        public void Create(Exercise item)
         {
             _unit.Tasks.Create(item);
         }
 
-        public TaskEntity Get(int id)
+        public Exercise Get(int id)
         {
             var task = _unit.Tasks.Get(id);
 
             return task;
         }
 
-        public IEnumerable<TaskEntity> GetAll()
+        public IEnumerable<Exercise> GetAll()
         {
             var tasks = _unit.Tasks.GetAll();
 
             return tasks;
         }
 
-        public void Update(TaskEntity item)
+        public void Update(Exercise item)
         {
             _unit.Tasks.Update(item);
         }

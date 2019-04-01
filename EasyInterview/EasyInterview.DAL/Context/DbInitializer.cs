@@ -7,7 +7,7 @@ namespace EasyInterview.DAL.Context
     {
         protected override void Seed(SqlContext db)
         {
-            db.Tasks.Add(new TaskEntity {Name = "Test"});
+            db.Tasks.Add(new Exercise {Name = "Test"});
 
             db.SaveChanges();
         }

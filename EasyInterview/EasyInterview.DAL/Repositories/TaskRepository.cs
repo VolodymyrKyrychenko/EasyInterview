@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace EasyInterview.DAL.Repositories
 {
-    public class TaskRepository : IRepository<TaskEntity>
+    public class TaskRepository : IRepository<Exercise>
     {
         private readonly SqlContext _context;
 
@@ -16,35 +16,35 @@ namespace EasyInterview.DAL.Repositories
             _context = context;
         }
 
-        public void Create(TaskEntity item)
+        public void Create(Exercise item)
         {
             _context.Tasks.Add(item);
 
             _context.SaveChanges();
         }
 
-        public TaskEntity Get(int id)
+        public Exercise Get(int id)
         {
             var task = _context.Tasks.SingleOrDefault(t => t.Id == id);
 
             return task;
         }
 
-        public IEnumerable<TaskEntity> GetAll()
+        public IEnumerable<Exercise> GetAll()
         {
             var tasks = _context.Tasks.ToList();
 
             return tasks;
         }
 
-        public void Update(TaskEntity item)
+        public void Update(Exercise item)
         {
             _context.Entry(item).State = EntityState.Modified;
 
             _context.SaveChanges();
         }
 
-        public void Delete(TaskEntity item)
+        public void Delete(Exercise item)
         {
             _context.Tasks.Remove(item);
 

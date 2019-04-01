@@ -8,9 +8,9 @@ namespace EasyInterview.WEB.AutoMapper
     {
         public WebMappingProfile()
         {
-            CreateMap<TaskEntity, TaskModelView>();
+            CreateMap<Exercise, TaskModelView>();
 
-            CreateMap<TaskModelView, TaskEntity>();
+            CreateMap<TaskModelView, Exercise>();
         }
     }
 }
