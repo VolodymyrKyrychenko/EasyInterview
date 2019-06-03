@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Web.Models.Library.LibraryViewModel>
+
+<div>
+    Library > Library - <span id="Selected_Library"></span>
+</div>
+
+<div>
+    @foreach (var item in Model)
+    {
+        <div>@item.Name questions</div>
+    }
+</div>
+<div class="body-content row">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-7">
+
+    </div>
+</div>

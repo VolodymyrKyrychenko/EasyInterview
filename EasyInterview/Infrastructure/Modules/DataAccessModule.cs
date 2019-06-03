@@ -16,7 +16,7 @@ namespace Infrastructure.Modules
                 .Register(context =>
                 {
                     var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>()
-                        .UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=db;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                        .UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=.s;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
                     return new AppDbContext(optionsBuilder.Options);
                 })
