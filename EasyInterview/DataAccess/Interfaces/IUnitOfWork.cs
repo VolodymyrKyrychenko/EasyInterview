@@ -7,13 +7,11 @@ namespace DataAccess.Interfaces
     {
         IRepository<Candidate> CandidateRepository { get; }
 
-        IRepository<Change> ChangeRepository { get; }
-
         IRepository<Company> CompanyRepository { get; }
 
         IRepository<Employee> EmployeeRepository { get; }
 
-        IRepository<Exercise> ExerciseRepository { get; }
+        IRepository<Problem> ProblemRepository { get; }
 
         IRepository<Interview> InterviewRepository { get; }
 

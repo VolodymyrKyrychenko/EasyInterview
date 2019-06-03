@@ -10,8 +10,8 @@
 
         public string Output { get; set; }
 
-        public int ExerciseId { get; set; }
+        public int ProblemId { get; set; }
 
-        public Exercise Exercise { get; set; }
+        public Problem Problem { get; set; }
     }
 }

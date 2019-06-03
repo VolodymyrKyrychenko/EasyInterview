@@ -1,18 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Common.Interfaces;
+using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Services.Interfaces;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Web.Models.Library;
 
 namespace Web.Controllers
 {
     public class LibraryController : Controller
     {
-        // GET: Library
-        public ActionResult Index()
+        private readonly IService<Library> _libraryService;
+        private readonly IMappingService _mappingService;
+
+        public LibraryController(IService<Library> libraryService, IMappingService mappingService)
         {
-            return View();
+            _libraryService = libraryService;
+            _mappingService = mappingService;
+        }
+
+        public async Task<ActionResult> Index()
+        {
+            var libraries = await _libraryService.Get();
+
+            var librariesModel = _mappingService.Map<IEnumerable<Library>, List<LibraryViewModel>>(libraries);
+
+            return View(librariesModel);
         }
 
         // GET: Library/Details/5

@@ -16,17 +16,16 @@ namespace Infrastructure.Modules
                 .Register(context =>
                 {
                     var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>()
-                        .UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=db;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                        .UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=.s;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
                     return new AppDbContext(optionsBuilder.Options);
                 })
                 .InstancePerLifetimeScope();
 
             builder.RegisterType<Repository<Candidate>>().As<IRepository<Candidate>>();
-            builder.RegisterType<Repository<Change>>().As<IRepository<Change>>();
             builder.RegisterType<Repository<Company>>().As<IRepository<Company>>();
             builder.RegisterType<Repository<Employee>>().As<IRepository<Employee>>();
-            builder.RegisterType<Repository<Exercise>>().As<IRepository<Exercise>>();
+            builder.RegisterType<Repository<Problem>>().As<IRepository<Problem>>();
             builder.RegisterType<Repository<Interview>>().As<IRepository<Interview>>();
             builder.RegisterType<Repository<Library>>().As<IRepository<Library>>();
             builder.RegisterType<Repository<Tag>>().As<IRepository<Tag>>();

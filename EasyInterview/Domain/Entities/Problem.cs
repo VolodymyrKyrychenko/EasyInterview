@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class Exercise : BaseEntity
+    public class Problem : BaseEntity
     {
         public string Name { get; set; }
 
@@ -16,15 +16,17 @@ namespace Domain.Entities
 
         public int Level { get; set; }
 
-        public ICollection<Library> Libraries { get; set; }
-        public ICollection<Test> Tests { get; set; }
-        public ICollection<Tag> Tags { get; set; }
+        public ICollection<LibraryProblem> Libraries { get; set; }
 
-        public Exercise()
+        public ICollection<Test> Tests { get; set; }
+
+        public ICollection<ProblemTag> Tags { get; set; }
+
+        public Problem()
         {
-            Libraries = new List<Library>();
+            Libraries = new List<LibraryProblem>();
             Tests = new List<Test>();
-            Tags = new List<Tag>();
+            Tags = new List<ProblemTag>();
         }
     }
 }

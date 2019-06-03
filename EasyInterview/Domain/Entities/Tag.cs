@@ -6,6 +6,6 @@ namespace Domain.Entities
     {
         public string Name { get; set; }
 
-        public ICollection<Exercise> Tasks { get; set; }
+        public ICollection<ProblemTag> Problems { get; set; }
     }
 }

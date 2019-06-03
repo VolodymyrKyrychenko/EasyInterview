@@ -1,4 +1,6 @@
-﻿namespace Domain.Entities
+﻿using System.Collections.Generic;
+
+namespace Domain.Entities
 {
     public class Employee : BaseEntity
     {
@@ -14,11 +16,11 @@
 
         public Company Company { get; set; }
 
-        public ICollection<Interview> Interviews { get; set; }
+        public ICollection<Interviewer> Interviews { get; set; }
 
         public Employee()
         {
-            Interviews = new List<Interview>();
+            Interviews = new List<Interviewer>();
         }
     }
 }

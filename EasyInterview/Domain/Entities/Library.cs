@@ -10,13 +10,11 @@ namespace Domain.Entities
 
         public Company Company { get; set; }
 
-        public ICollection<Interview> Interviews { get; set; }
-
-        public ICollection<Exercise> Tasks { get; set; }
+        public ICollection<LibraryProblem> Problems { get; set; }
 
         public Library()
         {
-            Tasks = new List<Exercise>();
+            Problems = new List<LibraryProblem>();
         }
     }
 }
