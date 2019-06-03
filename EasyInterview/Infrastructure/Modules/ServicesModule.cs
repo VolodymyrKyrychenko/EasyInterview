@@ -9,7 +9,8 @@ namespace Infrastructure.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<LibraryService>().As<IService<Library>>();           
+            builder.RegisterType<LibraryService>().As<IService<Library>>();
+            builder.RegisterType<InterviewService>().As<IInterviewService>();
         }
     }
 }
