@@ -1,7 +1,50 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Not started</a></li>
+    <li><a data-toggle="tab" href="#menu1">In-Progress</a></li>
+    <li><a data-toggle="tab" href="#menu2">Archived</a></li>
+</ul>
 
-<h2>Index</h2>
-
+<div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Candidate`s Name</th>
+                    <th>Position</th>
+                    <th>Start Time</th>
+                    <th>Duration</th>
+                    <th>
+                        <div>Edit</div>
+                        <div>Report</div>
+                        <div>Go</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+        <h3>Menu 1</h3>
+        <p>Some content in menu 1.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+        <h3>Menu 2</h3>
+        <p>Some content in menu 2.</p>
+    </div>
+</div>
