@@ -7,8 +7,6 @@ namespace Domain.Entities
     {
         public string Report { get; set; }
 
-        public DateTime Date { get; set; }
-
         public DateTime Start { get; set; }
 
         public DateTime Finish { get; set; }
@@ -19,16 +17,11 @@ namespace Domain.Entities
 
         public int LibraryId { get; set; }
 
-        public Library Library { get; set; }
-
-        public ICollection<Employee> Employees { get; set; }
-
-        public ICollection<Change> Changes { get; set; }
+        public ICollection<Interviewer> Interviewer { get; set; }
 
         public Interview()
         {
-            Employees = new List<Employee>();
-            Changes = new List<Change>();
+            Interviewer = new List<Interviewer>();
         }
     }
 }

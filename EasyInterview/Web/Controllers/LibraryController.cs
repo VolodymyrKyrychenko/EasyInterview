@@ -26,7 +26,7 @@ namespace Web.Controllers
 
             var librariesModel = _mappingService.Map<IEnumerable<Library>, List<LibraryViewModel>>(libraries);
 
-            return View(libraries);
+            return View(librariesModel);
         }
 
         // GET: Library/Details/5

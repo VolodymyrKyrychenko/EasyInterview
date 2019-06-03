@@ -23,10 +23,9 @@ namespace Infrastructure.Modules
                 .InstancePerLifetimeScope();
 
             builder.RegisterType<Repository<Candidate>>().As<IRepository<Candidate>>();
-            builder.RegisterType<Repository<Change>>().As<IRepository<Change>>();
             builder.RegisterType<Repository<Company>>().As<IRepository<Company>>();
             builder.RegisterType<Repository<Employee>>().As<IRepository<Employee>>();
-            builder.RegisterType<Repository<Exercise>>().As<IRepository<Exercise>>();
+            builder.RegisterType<Repository<Problem>>().As<IRepository<Problem>>();
             builder.RegisterType<Repository<Interview>>().As<IRepository<Interview>>();
             builder.RegisterType<Repository<Library>>().As<IRepository<Library>>();
             builder.RegisterType<Repository<Tag>>().As<IRepository<Tag>>();
