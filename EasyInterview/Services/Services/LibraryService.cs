@@ -6,7 +6,7 @@ using Services.Interfaces;
 
 namespace Services.Services
 {
-    public class LibraryService : IService<Library>
+    public class LibraryService : ILibraryService
     {
         private readonly IUnitOfWork _unitOfWork;
 

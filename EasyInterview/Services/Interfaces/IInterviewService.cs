@@ -8,5 +8,11 @@ namespace Services.Interfaces
     public interface IInterviewService
     {
         Task<IEnumerable<Interview>> Get(InterviewStatus status);
+
+        Task Create(Interview interview);
+
+        Task Update(Interview interview);
+
+        Task<string> GerReport(int interviewId);
     }
 }
