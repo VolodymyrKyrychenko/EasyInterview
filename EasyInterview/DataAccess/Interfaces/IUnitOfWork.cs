@@ -17,6 +17,8 @@ namespace DataAccess.Interfaces
 
         IRepository<Library> LibraryRepository { get; }
 
+        IRepository<LibraryProblem> LibraryProblemRepository { get; }
+
         IRepository<Tag> TagRepository { get; }
 
         IRepository<Test> TestRepository { get; }

@@ -28,6 +28,7 @@ namespace Infrastructure.Modules
             builder.RegisterType<Repository<Problem>>().As<IRepository<Problem>>();
             builder.RegisterType<Repository<Interview>>().As<IRepository<Interview>>();
             builder.RegisterType<Repository<Library>>().As<IRepository<Library>>();
+            builder.RegisterType<Repository<LibraryProblem>>().As<IRepository<LibraryProblem>>();
             builder.RegisterType<Repository<Tag>>().As<IRepository<Tag>>();
             builder.RegisterType<Repository<Test>>().As<IRepository<Test>>();
 
