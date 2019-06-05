@@ -1,4 +1,7 @@
-﻿using DataAccess.Interfaces;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using DataAccess.Interfaces;
+using Domain.Entities;
 using Services.Interfaces;
 
 namespace Services.Services
@@ -10,6 +13,11 @@ namespace Services.Services
         public TagService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+        }
+
+        public Task<IEnumerable<Tag>> GetAll()
+        {
+            return _unitOfWork.TagRepository.GetAsync();
         }
     }
 }

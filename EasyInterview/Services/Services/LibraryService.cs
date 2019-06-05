@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Interfaces;
 using Domain.Entities;
@@ -15,9 +16,11 @@ namespace Services.Services
             _unitOfWork = unitOfWork;
         }
 
-        public Task<IEnumerable<Library>> Get()
+        public async Task<Library> Get(string company)
         {
-            return _unitOfWork.LibraryRepository.GetAsync();
+            var library = await _unitOfWork.LibraryRepository.GetAsync(lib => lib.Company.Name == company);
+
+            return library.FirstOrDefault();
         }
     }
 }
