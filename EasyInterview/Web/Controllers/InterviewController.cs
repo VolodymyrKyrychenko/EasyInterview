@@ -1,23 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Services.Enums;
+using Services.Interfaces;
+using System.Threading.Tasks;
 
 namespace Web.Controllers
 {
     public class InterviewController : Controller
     {
+        private readonly IInterviewService _interviewService;
+
+        public InterviewController(IInterviewService interviewService)
+        {
+            _interviewService = interviewService;
+        }
+
         // GET: Interview
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Interview/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Get(InterviewStatus status)
         {
+            var interviews = await _interviewService.Get(status);
+
             return View();
         }
 

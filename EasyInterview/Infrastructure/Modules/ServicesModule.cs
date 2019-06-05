@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using Domain.Entities;
 using Services.Interfaces;
 using Services.Services;
 
@@ -9,7 +8,12 @@ namespace Infrastructure.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<LibraryService>().As<IService<Library>>();           
+            builder.RegisterType<AccountService>().As<IAccountService>();
+            builder.RegisterType<LibraryService>().As<ILibraryService>();
+            builder.RegisterType<InterviewService>().As<IInterviewService>();
+            builder.RegisterType<ProblemService>().As<IProblemService>();
+            builder.RegisterType<TagService>().As<ITagService>();
+            builder.RegisterType<TestService>().As<ITestService>();
         }
     }
 }

@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Services.Interfaces;
 
 namespace Web.Controllers
 {
     public class ProblemController : Controller
     {
+        private readonly IProblemService _problemService;
+
+        public ProblemController(IProblemService problemService)
+        {
+            _problemService = problemService;
+        }
+
         // GET: Problem
         public ActionResult Index()
         {

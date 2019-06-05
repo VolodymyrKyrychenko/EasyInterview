@@ -11,10 +11,10 @@ namespace Web.Controllers
 {
     public class LibraryController : Controller
     {
-        private readonly IService<Library> _libraryService;
+        private readonly ILibraryService _libraryService;
         private readonly IMappingService _mappingService;
 
-        public LibraryController(IService<Library> libraryService, IMappingService mappingService)
+        public LibraryController(ILibraryService libraryService, IMappingService mappingService)
         {
             _libraryService = libraryService;
             _mappingService = mappingService;
