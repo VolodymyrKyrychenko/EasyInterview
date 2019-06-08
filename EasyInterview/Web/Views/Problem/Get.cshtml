@@ -1,0 +1,30 @@
+﻿@model Domain.Entities.Problem
+
+<div>
+    <h4>@Model.Name</h4>
+    <div class="row">
+        <div class="col-md-4">Recomended time: 7min</div>
+        <div class="col-md-4">Points: 75</div>
+        <div class="col-md-4">@Model.Tests.Count test cases </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            @Model.Level
+        </div>
+        <div class="col-md-8">
+            @foreach (var tag in Model.Tags)
+            {
+                <div class="btn btn-block">@tag.Tag.Name</div>
+            }
+        </div>
+    </div>
+    <div>
+        <div>
+            @Html.DisplayFor(model => model.Condition)
+        </div>
+        <div>
+            @Html.DisplayFor(model => model.Notation)
+        </div>
+    </div>
+</div>
+

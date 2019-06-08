@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Entities;
-using Web.Models.Library;
+using Web.Models.LibraryModels;
 
 namespace Web.Infrastructure.MapperProfiles
 {
