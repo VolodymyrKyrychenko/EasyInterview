@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Domain.Entities.Interview>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Candidate`s Name</th>
+            <th>Email</th>
+            <th>Start Time</th>
+            <th>
+                @if (Model.Any(x => x.Start > DateTime.UtcNow))
+                {
+                    <div>Edit</div>
+                }
+
+                @if (Model.Any(x => x.Finish < DateTime.UtcNow))
+                {
+                    <div>Report</div>
+                }
+
+                @if (Model.Any(x => x.Finish > DateTime.UtcNow))
+                {
+                    <div>Go</div>
+                }             
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var interview in Model)
+        {
+        <tr>
+            <td>@interview.Candidate.Name</td>
+            <td>@interview.Candidate.Email</td>
+            <td>@interview.Start</td>
+        </tr>
+        }
+    </tbody>
+</table>

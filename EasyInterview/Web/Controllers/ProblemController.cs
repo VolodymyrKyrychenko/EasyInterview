@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
+using System.Threading.Tasks;
 
 namespace Web.Controllers
 {
@@ -17,6 +18,13 @@ namespace Web.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public async Task<ActionResult> Get(int id)
+        {
+            var problem = await _problemService.Find(id);
+
+            return PartialView(problem);
         }
 
         // GET: Problem/Details/5

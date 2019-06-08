@@ -5,34 +5,44 @@ using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Web.Models.Library;
+using Web.Models.LibraryModels;
+using Web.Models.Problem;
 
 namespace Web.Controllers
 {
     public class LibraryController : Controller
     {
         private readonly ILibraryService _libraryService;
+        private readonly IProblemService _problemService;
         private readonly IMappingService _mappingService;
 
-        public LibraryController(ILibraryService libraryService, IMappingService mappingService)
+        public LibraryController(ILibraryService libraryService, IMappingService mappingService, IProblemService problemService)
         {
             _libraryService = libraryService;
             _mappingService = mappingService;
+            _problemService = problemService;
         }
 
         public async Task<ActionResult> Index()
         {
-            var libraries = await _libraryService.Get();
+            var defaultLibrary = await _libraryService.Get("Default");
+            var library = await _libraryService.Get("Company");
 
-            var librariesModel = _mappingService.Map<IEnumerable<Library>, List<LibraryViewModel>>(libraries);
+            var libraryModel = new LibraryViewModel
+            {
+                Default = defaultLibrary,
+                Library = library
+            };
 
-            return View(librariesModel);
+            return View(libraryModel);
         }
 
         // GET: Library/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View();
+            var problem = await _problemService.Get(id);
+
+            return PartialView(problem);
         }
 
         // GET: Library/Create

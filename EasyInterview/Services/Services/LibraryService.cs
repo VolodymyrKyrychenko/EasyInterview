@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Interfaces;
 using Domain.Entities;
@@ -18,9 +17,18 @@ namespace Services.Services
 
         public async Task<Library> Get(string company)
         {
-            var library = await _unitOfWork.LibraryRepository.GetAsync(lib => lib.Company.Name == company);
+            var libraries = await _unitOfWork.LibraryRepository.GetAsync(
+                lib => lib.Company.Name == company);
 
-            return library.FirstOrDefault();
+            var library = libraries.FirstOrDefault();
+            
+            var problems = await _unitOfWork.LibraryProblemRepository.GetAsync(
+                prob => prob.LibraryId == library.Id,
+                prob => prob.Problem);
+
+            library.Problems = problems.ToList();
+
+            return library;
         }
     }
 }

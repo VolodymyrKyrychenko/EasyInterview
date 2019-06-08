@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Domain.Entities.Problem>
+
+<div class="col-md-6 no-float" style="overflow-y:scroll;">
+    @foreach (var problem in Model)
+    {
+        <div class="problem-item" onclick="GetProblem(@problem.Id)">
+            <p>@problem.Name</p>
+        </div>
+        <div>
+            @foreach (var tag in problem.Tags)
+            {
+                <div>@tag.Tag.Name</div>
+            }
+        </div>
+    }
+</div>
+<div class="col-md-6 no-float problem" style="overflow-y:scroll;">
+</div>

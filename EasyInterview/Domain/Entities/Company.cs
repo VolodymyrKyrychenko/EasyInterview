@@ -8,12 +8,9 @@ namespace Domain.Entities
 
         public ICollection<Employee> Employees { get; set; }
 
-        public ICollection<Library> Libraries { get; set; }
-
         public Company()
         {
             Employees = new List<Employee>();
-            Libraries = new List<Library>();
         }
     }
 }
