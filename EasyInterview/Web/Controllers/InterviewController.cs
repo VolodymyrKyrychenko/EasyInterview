@@ -18,7 +18,7 @@ namespace Web.Controllers
         // GET: Interview
         public ActionResult Index()
         {
-            return View();
+            return View("Interview");
         }
 
         public async Task<ActionResult> Get(InterviewStatus status)
