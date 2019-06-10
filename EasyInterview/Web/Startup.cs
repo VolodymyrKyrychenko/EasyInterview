@@ -1,10 +1,12 @@
 ﻿using Autofac.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Security.Claims;
 using Web.Infrastructure.DependencyInjection;
 using Web.Infrastructure.StartupExtension;
 
@@ -25,8 +27,15 @@ namespace Web
             services.AddAutoMapperProfiles();
 
             var container = services.SetupConfigurationContainer();
+			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+				.AddCookie(options =>
 
-            return new AutofacServiceProvider(container);
+				{
+					options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Register");
+				});
+
+
+			return new AutofacServiceProvider(container);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -40,8 +49,8 @@ namespace Web
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
-            app.UseHttpsRedirection();
+			app.UseAuthentication();
+			app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
