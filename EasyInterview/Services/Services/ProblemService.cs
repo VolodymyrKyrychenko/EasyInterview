@@ -32,5 +32,10 @@ namespace Services.Services
         {
             return _unitOfWork.ProblemRepository.GetAsync(problem => problem.Libraries.Select(x => x.LibraryId).Contains(libraryId));
         }
+
+        public Task<IEnumerable<Problem>> GetProblemName(string name)
+        {
+            return  _unitOfWork.ProblemRepository.GetAsync(problem => problem.Name == name);
+        }
     }
 }

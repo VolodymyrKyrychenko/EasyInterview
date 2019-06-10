@@ -11,5 +11,7 @@ namespace Services.Interfaces
         Task<IEnumerable<Problem>> Get(int libraryId);
 
         Task Create(Problem problem);
+
+        Task<IEnumerable<Problem>> GetProblemName(string name);
     }
 }
