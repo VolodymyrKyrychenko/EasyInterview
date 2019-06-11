@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Services.Enums;
 using Services.Interfaces;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Web.Controllers
 {
