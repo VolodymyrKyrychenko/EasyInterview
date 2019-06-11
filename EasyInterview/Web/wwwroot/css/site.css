@@ -38,9 +38,17 @@ for details on configuring this project to bundle and minify static web assets. 
     margin: 0;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 /*Custom code*/
 
-
+/*Wrapper*/
+.wrapper {
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 36%, rgba(242, 242, 242, 1) 100%, rgba(242, 242, 242, 1) 100%);
+}
 
 /*Header*/
 .header {
@@ -55,6 +63,88 @@ for details on configuring this project to bundle and minify static web assets. 
 .logo img {
     height: 100%;
     width: auto;
+    padding: 10px 0;
 }
 
-/**/
+/*Slogan*/
+.slogan {
+    text-align: center;
+    margin-top: 150px;
+}
+
+    .slogan h1 {
+        font-family: 'Consolas', Arial, Helvetica, sans-serif;
+    }
+
+    .slogan p {
+        margin-top: 20px;
+        font-family: 'Consolas Bold', 'Consolas', Arial, Helvetica, sans-serif;
+    }
+
+/*Buttons*/
+.buttons {
+    margin-top: 150px;
+}
+
+/*Let's Hire*/
+.lets-hire {
+    height: 70px;
+    max-width: 200px;
+    width: 100%;
+    background: green;
+    text-align: center;
+    margin: auto;
+    line-height: 70px;
+    cursor: pointer;
+    font-family: 'Consolas Bold', 'Consolas', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+    color: #FFFFFF;
+    background: inherit;
+    background-color: rgba(27, 169, 76, 1);
+    border: none;
+    border-radius: 5px;
+}
+
+/*Get Hired*/
+.get-hired {
+    height: 70px;
+    max-width: 200px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    line-height: 70px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 1);
+    box-sizing: border-box;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(27, 169, 76, 1);
+    border-radius: 5px;
+    font-family: 'Consolas Bold', 'Consolas';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+    color: #1BA94C;
+}
+
+/*Demo*/
+.demo {
+    margin-top: 150px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+    .demo video {
+        margin: auto;
+    }
+
+/*Footer*/
+.footer {
+    background: #272727;
+}
+
+footer-logo img {
+    margin: 0;
+}
