@@ -31,3 +31,27 @@ for details on configuring this project to bundle and minify static web assets. 
         display: none;
     }
 }
+
+/*Custom Refresh*/
+.body-content {
+    padding: 0;
+}
+
+/*Custom code*/
+
+/*Header*/
+.header {
+    max-height: 70px;
+    height: auto;
+    max-width: 1920px;
+    width: 100%;
+    background: rgba(57, 66, 78, 1);
+}
+
+/*Logo*/
+.logo img {
+    height: 100%;
+    width: auto;
+}
+
+/**/
