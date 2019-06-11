@@ -45,7 +45,17 @@ namespace Services.Services
             return _unitOfWork.InterviewRepository.GetAsync(_filters[status]);
         }
 
-        public Task Update(Interview interview)
+		public Task<IEnumerable<Interview>> GetAll()
+		{
+			return _unitOfWork.InterviewRepository.GetAsync(includes: x => x.Candidate);
+		}
+
+		public Task<Interview> GetbyId(int id)
+		{
+			return _unitOfWork.InterviewRepository.FindAsync(id);
+		}
+
+		public Task Update(Interview interview)
         {
             _unitOfWork.InterviewRepository.Update(interview);
 
