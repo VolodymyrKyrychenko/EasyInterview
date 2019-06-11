@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                             connection.invoke('send', content);
                         }
-                    }, 2000);
+                    }, 5000);
                 });
         })
         .catch(error => {
@@ -98,4 +98,19 @@ function run() {
     var output = $("#output");
     output.text('');
     output.text(http.response);
+    validation();
 }
+
+function validation() {
+    $.ajax({
+        url: '/Interview/Validation',
+        contentType: "application/json; charset=utf-8",
+        data: { 'content': $("#output").text() },
+        type: 'GET',
+        cache: false,
+        success: function (result) {
+            $("#result").text(result);
+        }
+    });
+}
+

@@ -27,6 +27,18 @@ namespace Web.Controllers
             return View("Interview");
         }
 
+        public ActionResult Validation(string content)
+        {
+            if (content == "Hello World!")
+            {
+                return Json("Accepted!");
+            }
+            else
+            {
+                return Json("Failed");
+            }
+        }
+
 		public async Task<ActionResult> List()
 		{
 			var interviews = await _interviewService.GetAll();

@@ -7,20 +7,7 @@
             <th>Email</th>
             <th>Start Time</th>
             <th>
-                @if (Model.Any(x => x.Start > DateTime.UtcNow))
-                {
-                    <div>Edit</div>
-                }
-
-                @if (Model.Any(x => x.Finish < DateTime.UtcNow))
-                {
-                    <div>Report</div>
-                }
-
-                @if (Model.Any(x => x.Finish > DateTime.UtcNow))
-                {
-                    <div>Go</div>
-                }             
+             
             </th>
         </tr>
     </thead>
@@ -31,6 +18,22 @@
             <td>@interview.Candidate.Name</td>
             <td>@interview.Candidate.Email</td>
             <td>@interview.Start</td>
+            <td>
+                @if (interview.Start > DateTime.UtcNow)
+                {
+                    <a asp-controller="Interview" asp-action="Index"><div>Edit</div></a>
+                }
+
+                @if (interview.Finish < DateTime.UtcNow)
+                {
+                    <a asp-controller="Interview" asp-action="Index"><div>Report</div></a>
+                }
+
+                @if (interview.Finish > DateTime.UtcNow)
+                {
+                    <a asp-controller="Interview" asp-action="Index"><div>Go</div></a>
+                }
+            </td>
         </tr>
         }
     </tbody>
