@@ -9,10 +9,14 @@ namespace Services.Interfaces
     {
         Task<IEnumerable<Interview>> Get(InterviewStatus status);
 
-        Task Create(Interview interview);
+		Task<Interview> GetbyId(int id);
+
+		Task Create(Interview interview);
 
         Task Update(Interview interview);
 
         Task<string> GerReport(int interviewId);
-    }
+
+		Task<IEnumerable<Interview>> GetAll();
+	}
 }
