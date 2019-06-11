@@ -13,5 +13,7 @@ namespace Services.Interfaces
         Task Create(Problem problem);
 
         Task<IEnumerable<Problem>> GetProblemName(string name);
+
+        Task Update(Problem problem);
     }
 }
