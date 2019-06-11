@@ -37,5 +37,12 @@ namespace Services.Services
         {
             return  _unitOfWork.ProblemRepository.GetAsync(problem => problem.Name == name);
         }
+
+        public Task Update(Problem problem)
+        {
+            _unitOfWork.ProblemRepository.Update(problem);
+
+            return _unitOfWork.SaveAsync();
+        }
     }
 }
