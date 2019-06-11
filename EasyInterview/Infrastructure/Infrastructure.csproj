@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.9.2" />
+    <PackageReference Include="de.lkraemer.nemmet" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>

@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Security.Claims;
+using Web.Hubs;
 using Web.Infrastructure.DependencyInjection;
 using Web.Infrastructure.StartupExtension;
 
@@ -22,7 +23,8 @@ namespace Web
         public IConfiguration Configuration { get; }
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
-        {        
+        {
+            services.AddSignalR();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddAutoMapperProfiles();
 
@@ -52,6 +54,11 @@ namespace Web
 			app.UseAuthentication();
 			app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<InterviewHub>("/inter");
+            });
 
             app.UseMvc(routes =>
             {
