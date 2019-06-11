@@ -44,6 +44,8 @@ for details on configuring this project to bundle and minify static web assets. 
 
 /*Custom code*/
 
+/*Home*/
+
 /*Wrapper*/
 .wrapper {
     height: 100%;
@@ -147,4 +149,43 @@ for details on configuring this project to bundle and minify static web assets. 
 
 footer-logo img {
     margin: 0;
+}
+
+/*Interview*/
+
+/*Users*/
+.users {
+
+}
+
+/*Indicator*/
+.indicator {
+    width: 22px;
+    height: 22px;
+    border-radius: 20px;
+    background: red;
+}
+
+/*Name*/
+.name {
+
+}
+
+/*Title*/
+.title {
+    height: 70px;
+}
+
+/*Code*/
+#code {
+    width: 959px !important;
+    height: 849px !important;
+}
+
+/*Connection*/
+.connection div {
+    position: absolute;
+    display: block;
+    top: 889px;
+    left: 1778px;
 }
