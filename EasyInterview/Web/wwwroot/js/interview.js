@@ -84,3 +84,18 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error(error.message);
         });
 });
+
+function run() {
+    var http = new XMLHttpRequest();
+    http.open("POST", "https://coliru.stacked-crooked.com/compile", false);
+    var initialCommand = "g++ -std=c++17 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
+    var input = document.getElementById("input").value;
+    if (input.length > 0) {
+        input = input.replace(/ /g, "\n");
+        initialCommand += " << EOF\n" + input + "\nEOF";
+    }
+    http.send(JSON.stringify({ "cmd": initialCommand, "src": code.getValue() }));
+    var output = $("#output");
+    output.text('');
+    output.text(http.response);
+}
