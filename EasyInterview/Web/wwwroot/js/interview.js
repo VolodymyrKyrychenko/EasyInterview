@@ -18,16 +18,18 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     edit = true;
-    // Start the connection.
+
+    $('#forCode').on('keydown', '#code', function (event) {
+        edit = false;
+    });
+
     var connection = new signalR.HubConnectionBuilder()
         .withUrl('/inter')
         .build();
     // Create a function that the hub can call to broadcast messages.
     connection.on('broadcastMessage', function (content) {
         if (edit) {
-            $('#code').remove();
 
-            $('#forCode').append('<div id="code"></div>');
 
             ace.require("ace/ext/language_tools");
             code = ace.edit("code");                      // создаем редактор из элемента с id="code"
@@ -52,27 +54,31 @@ document.addEventListener('DOMContentLoaded', function () {
     connection.start()
         .then(function () {
             console.log('connection started');
-            $('#forCode').on('keyup', '#code', function (event) {
-                edit = false;
 
-                var content = "";
 
-                 $('.ace_line').each(function (index, elem) {
-                    var span = $(elem).find('span');
+            $('#forCode').on('keyup',
+                '#code',
+                function (event) {
+                    edit = true;
 
-                    $(span).each(function (index, elem) {
-                        content += elem.innerText + " ";
-                    });
+                    setTimeout(() => {
+                        if (edit) {
+                            var content = "";
 
-                    content += '\n';
-                 });
+                            $('.ace_line').each(function (index, el) {
 
-                 content.trim();
+                                content += el.innerText;
 
-                connection.invoke('send', content);
-                // Clear text box and reset focus for next comment.
-                event.preventDefault();
-            });
+
+                                if (content.charAt(content.length - 2) !== '\n') {
+                                    content += '\n';
+                                }
+                            });
+
+                            connection.invoke('send', content);
+                        }
+                    }, 2000);
+                });
         })
         .catch(error => {
             console.error(error.message);

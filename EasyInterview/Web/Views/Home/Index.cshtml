@@ -1,11 +1,75 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
 <html>
     <head>
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     </head>
     <body>
-        Hello World
+        <div class="wrapper">
+            <!--Header-->
+            <header>
+                <div class="header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 logo">
+                                <img class="logotype" src="~/images/logo.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!--Content-->
+            <div class="container content">
+                <div class="row">
+                    <div class="slogan col-md-12">
+                        <h1>Hire and be hired easier</h1>
+                        <p>EasyInterview - service for more efficient search and hiring talents</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="buttons col-md-12">
+                        <div class="col-md-3 col-md-offset-3">
+                            <a><div class="lets-hire">Let's Hire</div></a>
+                        </div>
+                        <div class="col-md-3">
+                            <a><div class="get-hired">Get Hired</div></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="demo col-md-12">
+                        <video controls poster="">
+                            <source src="~/media/demo.waw" />
+                            <source src="~/media/demo.mp4" />
+                            <source src="~/media/demo.ogg" />
+                            <source src="~/media/demo.webm" />
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Footer-->
+        <footer>
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 footer-logo">
+                            <img class="logotype" src="~/images/logo.png" />
+                        </div>
+                        <div class="col-md-4 footer-logo">
+                            <img class="logotype" src="~/images/logo.png" />
+                        </div>
+                        <div class="col-md-4 footer-logo">
+                            <img class="logotype" src="~/images/logo.png" />
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </footer>
+        <!--Scripts-->
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     </body>
 </html>

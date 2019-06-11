@@ -6,7 +6,6 @@ using Services.Interfaces;
 using System.Threading.Tasks;
 using System;
 
-
 namespace Web.Controllers
 {
     public class InterviewController : Controller
@@ -122,10 +121,5 @@ namespace Web.Controllers
                 return View();
             }
         }
-
-		public static implicit operator InterviewController(Interview v)
-		{
-			throw new NotImplementedException();
-		}
 	}
 }
