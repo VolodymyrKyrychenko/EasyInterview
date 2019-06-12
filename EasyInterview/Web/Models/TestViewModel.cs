@@ -15,8 +15,8 @@ namespace Web.Models
 
         public string Output { get; set; }
 
-        //public int ProblemId { get; set; }
+		public int ProblemId { get; set; }
 
-        //public ProblemViewModel Problem { get; set; }
-    }
+		//public ProblemViewModel Problem { get; set; }
+	}
 }

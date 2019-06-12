@@ -6,6 +6,7 @@ using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
+using Web.Models;
 
 namespace Web.Controllers
 {
@@ -33,12 +34,12 @@ namespace Web.Controllers
             return View();
         }
 
-        // GET: Test/Create
-        public ActionResult Create(int problemId)
-        {
-            _problemId = problemId;
-            return View();
-        }
+		// GET: Test/Create
+		public ActionResult Create(int problemId)
+		{
+			_problemId = problemId;
+			return View(new TestViewModel { ProblemId = problemId });
+		}
 
         // POST: Test/Create
         [HttpPost]
@@ -55,7 +56,7 @@ namespace Web.Controllers
                     Hidden = Convert.ToBoolean(collection["Hidden"]),
                     Input = collection["Input"],
                     Output = collection["Output"],
-                    ProblemId = _problemId
+                    ProblemId = Convert.ToInt16(collection["ProblemId"])
                     //Problem = _problem
                 };
 
