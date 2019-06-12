@@ -77,10 +77,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
                             connection.invoke('send', content);
                         }
-                    }, 2000);
+                    }, 5000);
                 });
         })
         .catch(error => {
             console.error(error.message);
         });
 });
+
+function run() {
+    var http = new XMLHttpRequest();
+    http.open("POST", "https://coliru.stacked-crooked.com/compile", false);
+    var initialCommand = "g++ -std=c++17 -O2 -Wall -pedantic -pthread main.cpp && ./a.out";
+    var input = document.getElementById("input").value;
+    if (input.length > 0) {
+        input = input.replace(/ /g, "\n");
+        initialCommand += " << EOF\n" + input + "\nEOF";
+    }
+    http.send(JSON.stringify({ "cmd": initialCommand, "src": code.getValue() }));
+    var output = $("#output");
+    output.text('');
+    output.text(http.response);
+    validation();
+}
+
+function validation() {
+    $.ajax({
+        url: '/Interview/Validation',
+        contentType: "application/json; charset=utf-8",
+        data: { 'content': $("#output").text() },
+        type: 'GET',
+        cache: false,
+        success: function (result) {
+            $("#result").text(result);
+        }
+    });
+}
+

@@ -48,7 +48,7 @@ namespace Web.Controllers
         // POST: Problem/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> CreateAsync(IFormCollection collection)
         {
             try
             {
@@ -64,11 +64,11 @@ namespace Web.Controllers
                     Template = collection["Template"]
                 };
 
-                _problemService.Create(problem);
+                await _problemService.Create(problem);
 
-                Problem createdProblem = _problemService.GetProblemName(problem.Name).Result.Cast<Problem>().First();               
+                var createdProblem = await _problemService.GetProblemName(problem.Name);               
 
-                return RedirectToAction("Create", "Test", new { problemId = createdProblem.Id });
+                return RedirectToAction("Create", "Test", new { problemId = createdProblem.FirstOrDefault().Id });
             }
             catch
             {
