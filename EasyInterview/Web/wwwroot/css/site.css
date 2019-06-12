@@ -179,13 +179,39 @@ footer-logo img {
 /*Code*/
 #code {
     width: 959px !important;
-    height: 849px !important;
+    height: 630px !important;
 }
+
+/*Run*/
+.run {
+    height: 40px;
+    max-width: 265px;
+    width: 100%;
+    background: green;
+    text-align: center;
+    margin: auto;
+    line-height: 40px;
+    cursor: pointer;
+    font-family: 'Consolas Bold', 'Consolas', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+    color: #FFFFFF;
+    background: inherit;
+    background-color: rgba(27, 169, 76, 1);
+    border: none;
+    border-radius: 5px;
+    margin-left: 270px;
+    margin-top: 36px;
+}
+
+/*Result*/
+
 
 /*Connection*/
 .connection div {
     position: absolute;
     display: block;
-    top: 889px;
+    top: 689px;
     left: 1778px;
 }
