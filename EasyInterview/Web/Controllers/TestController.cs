@@ -119,8 +119,10 @@ namespace Web.Controllers
         }
 
         public ActionResult FinishTests()
-        {            
-            return RedirectToAction("FinishProblem", "Problem", tests);
+        {
+            //return RedirectToAction("FinishProblem", "Problem", tests);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
