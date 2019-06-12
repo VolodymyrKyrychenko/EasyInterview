@@ -16,6 +16,7 @@ namespace DataAccess.UnitOfWork
         private readonly Lazy<IRepository<Problem>> _problemRepository;
         private readonly Lazy<IRepository<Interview>> _interviewRepository;
         private readonly Lazy<IRepository<Library>> _libratyRepository;
+        private readonly Lazy<IRepository<LibraryProblem>> _libratyProblemRepository;
         private readonly Lazy<IRepository<Tag>> _tagRepository;
         private readonly Lazy<IRepository<Test>> _testRepository;
 
@@ -29,6 +30,7 @@ namespace DataAccess.UnitOfWork
             _problemRepository = new Lazy<IRepository<Problem>>(() => new Repository<Problem>(_context));
             _interviewRepository = new Lazy<IRepository<Interview>>(() => new Repository<Interview>(_context));
             _libratyRepository = new Lazy<IRepository<Library>>(() => new Repository<Library>(_context));
+            _libratyProblemRepository = new Lazy<IRepository<LibraryProblem>>(() => new Repository<LibraryProblem>(_context));
             _tagRepository = new Lazy<IRepository<Tag>>(() => new Repository<Tag>(_context));
             _testRepository = new Lazy<IRepository<Test>>(() => new Repository<Test>(_context));
         }
@@ -44,6 +46,8 @@ namespace DataAccess.UnitOfWork
         public IRepository<Interview> InterviewRepository => _interviewRepository.Value;
 
         public IRepository<Library> LibraryRepository => _libratyRepository.Value;
+
+        public IRepository<LibraryProblem> LibraryProblemRepository => _libratyProblemRepository.Value;
 
         public IRepository<Tag> TagRepository => _tagRepository.Value;
 

@@ -1,0 +1,96 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Interview</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style type="text/css" media="screen">
+        #code { 
+            width: 300px;
+            height: 450px;
+            float:left;
+            min-height:100px;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="row">
+                <div class="col-md-3 logo">
+                    <img class="logotype" src="~/images/logo.png" />
+                </div>
+                <div class="col-md-4 users">
+                    <!--Тут показывает, кто онлайн
+                    Цвета рандомные-->
+                    <div class="user">
+                        <span class="indicator"></span>
+                        <span class="name">Danya</span>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-offset-3">
+                    <div class="end-interview"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="title">
+                    <h1>Task Description</h1>
+                </div>
+                <div class="description">
+                    <!--Тут условие-->
+                    fonrohoihpwfoiphhiopfohiwefihfweiohwefihoefiefiohefuhugwieyfgyiweofgweofygwef
+                    shufwepufgwepiugfwepifgwiefe
+
+                    wejfowefhywefujwef
+                    wekfpwefuwe
+                    wefl[wefiw[epi[wefwe
+                    wefp[dffp]]]]
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="forCode">
+                    <div id="code" class="m-6">
+                    </div>
+                </div>
+
+            </div>
+
+                <div class="container">
+                    <g:hangout render="createhangout"
+                               initial_apps="[{ app_id : '184219133185', start_data : 'dQw4w9WgXcQ', 'app_type': 'LOCAL_APP' }]">
+                    </g:hangout>
+                </div>
+                <button id="run" onclick='run();'>Run</button>
+                <p>INPUT</p>
+                <input id="input" type="text" size=100>
+                <p>OUTPUT</p><pre id="output">Waiting...</pre>
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/ace/1.2.3/min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="~/lib/signalr.js"></script>
+    <script src="~/js/interview.js"></script>
+    <script>
+        gapi.hangout.render('placeholder-div2', {
+            'render': 'createhangout',
+            'initial_apps': [{ 'app_id': '184219133185', 'start_data': 'dQw4w9WgXcQ', 'app_type': 'ROOM_APP' }],
+            'widget_size': 72
+        });
+    </script>
+</body>
+</html>

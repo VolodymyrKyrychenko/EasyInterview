@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace Services.Interfaces
 {
-    public interface IService<TEntity> where TEntity : BaseEntity
+    public interface ITagService
     {
-        Task<IEnumerable<TEntity>> Get();
+        Task<IEnumerable<Tag>> GetAll();
     }
 }

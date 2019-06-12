@@ -1,18 +1,36 @@
-﻿using System;
+﻿using Domain.Entities;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Services.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+using Web.Models;
 
 namespace Web.Controllers
 {
     public class ProblemController : Controller
     {
+        private readonly IProblemService _problemService;
+        private Problem problem;
+
+        public ProblemController(IProblemService problemService)
+        {
+            _problemService = problemService;           
+        }
+
         // GET: Problem
         public ActionResult Index()
         {
             return View();
+        }
+
+        public async Task<ActionResult> Get(int id)
+        {
+            var problem = await _problemService.Find(id);
+
+            return PartialView(problem);
         }
 
         // GET: Problem/Details/5
@@ -30,13 +48,27 @@ namespace Web.Controllers
         // POST: Problem/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> CreateAsync(IFormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
 
-                return RedirectToAction(nameof(Index));
+                problem = new Problem
+                {
+                    Name = collection["Name"],
+                    Condition = collection["Condition"],
+                    Example = collection["Example"],
+                    Level = Convert.ToInt32(collection["Level"]),
+                    Notation = collection["Notation"],
+                    Template = collection["Template"]
+                };
+
+                await _problemService.Create(problem);
+
+                var createdProblem = await _problemService.GetProblemName(problem.Name);               
+
+                return RedirectToAction("Create", "Test", new { problemId = createdProblem.FirstOrDefault().Id });
             }
             catch
             {
@@ -89,5 +121,23 @@ namespace Web.Controllers
                 return View();
             }
         }
+
+        public ActionResult FinishProblem(ICollection<Test> tests)
+        {
+            problem.Tests = tests;
+
+            _problemService.Update(problem);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        //TO FIX
+
+        //public ActionResult AddTest()
+        //{
+        //    ViewBag.ToShowTest = 1;
+
+        //    return Redirect("~/Problem/Create");
+        //}
     }
 }

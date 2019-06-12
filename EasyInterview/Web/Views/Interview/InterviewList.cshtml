@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Domain.Entities.Interview>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Candidate`s Name</th>
+            <th>Email</th>
+            <th>Start Time</th>
+            <th>
+             
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var interview in Model)
+        {
+        <tr>
+            <td>@interview.Candidate.Name</td>
+            <td>@interview.Candidate.Email</td>
+            <td>@interview.Start</td>
+            <td>
+                @if (interview.Start > DateTime.UtcNow)
+                {
+                    <a asp-controller="Interview" asp-action="Index"><div>Edit</div></a>
+                }
+
+                @if (interview.Finish < DateTime.UtcNow)
+                {
+                    <a asp-controller="Interview" asp-action="Index"><div>Report</div></a>
+                }
+
+                @if (interview.Finish > DateTime.UtcNow)
+                {
+                    <a asp-controller="Interview" asp-action="Index"><div>Go</div></a>
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
