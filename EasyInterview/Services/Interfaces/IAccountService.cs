@@ -5,6 +5,8 @@ namespace Services.Interfaces
 {
     public interface IAccountService
     {
+		Task<Employee> GetByEmailAsync(string login);
+		
         Task<Employee> Get(int id);
 
         Task Create(Employee employee);

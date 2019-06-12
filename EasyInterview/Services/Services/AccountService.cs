@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using DataAccess.Interfaces;
 using Domain.Entities;
 using Services.Interfaces;
@@ -14,7 +15,13 @@ namespace Services.Services
             _unitOfWork = unitOfWork;
         }
 
-        public async Task Create(Employee employee)
+		public async Task<Employee> GetByEmailAsync(string login)
+		{
+			var emp = await _unitOfWork.EmployeeRepository.GetAsync(x => x.Login == login);
+			return emp.FirstOrDefault();
+		}
+
+		public async Task Create(Employee employee)
         {
             await _unitOfWork.EmployeeRepository.CreateAsync(employee);
 
@@ -32,5 +39,7 @@ namespace Services.Services
 
             return _unitOfWork.SaveAsync();
         }
-    }
+
+		
+	}
 }

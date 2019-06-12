@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Web.Models;
@@ -12,13 +13,11 @@ namespace Web.Controllers
     public class ProblemController : Controller
     {
         private readonly IProblemService _problemService;
+        private Problem problem;
 
-        private readonly ITestService _testService;
-
-        public ProblemController(IProblemService problemService/*, ITestService testService*/)
+        public ProblemController(IProblemService problemService)
         {
-            _problemService = problemService;
-            //_testService = testService;
+            _problemService = problemService;           
         }
 
         // GET: Problem
@@ -43,21 +42,19 @@ namespace Web.Controllers
         // GET: Problem/Create
         public ActionResult Create()
         {
-            ViewBag.ToShowTest = 1;     //TO FIX
-
             return View();
         }
 
         // POST: Problem/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> CreateAsync(IFormCollection collection)
         {
-            //try
-            //{
+            try
+            {
                 // TODO: Add insert logic here
 
-                Problem problem = new Problem
+                problem = new Problem
                 {
                     Name = collection["Name"],
                     Condition = collection["Condition"],
@@ -67,28 +64,16 @@ namespace Web.Controllers
                     Template = collection["Template"]
                 };
 
-                _problemService.Create(problem);
+                await _problemService.Create(problem);
 
-                //Problem createdProblem = _problemService.GetProblemName(problem.Name).Result.Cast<Problem>().First();
+                var createdProblem = await _problemService.GetProblemName(problem.Name);               
 
-                //Test test = new Test
-                //{
-                //    Number = Convert.ToInt32(collection["Number"]),
-                //    Hidden = Convert.ToBoolean(collection["Hidden"]),
-                //    Input = collection["Input"],
-                //    Output = collection["Output"],
-                //    ProblemId = createdProblem.Id,
-                //    Problem = createdProblem
-                //};
-
-                //_testService.Create(test);
-
-                return RedirectToAction("Index", "Home");
-            //}
-            //catch
-            //{
-            //    return View();
-            //}
+                return RedirectToAction("Create", "Test", new { problemId = createdProblem.FirstOrDefault().Id });
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: Problem/Edit/5
@@ -137,13 +122,22 @@ namespace Web.Controllers
             }
         }
 
+        public ActionResult FinishProblem(ICollection<Test> tests)
+        {
+            problem.Tests = tests;
+
+            _problemService.Update(problem);
+
+            return RedirectToAction("Index", "Home");
+        }
+
         //TO FIX
 
         //public ActionResult AddTest()
         //{
         //    ViewBag.ToShowTest = 1;
 
-        //    return View("Create");
+        //    return Redirect("~/Problem/Create");
         //}
     }
 }
