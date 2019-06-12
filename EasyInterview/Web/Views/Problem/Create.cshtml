@@ -4,53 +4,62 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<head>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
 
-<h4>ProblemViewModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Condition" class="control-label"></label>
-                <input asp-for="Condition" class="form-control" />
-                <span asp-validation-for="Condition" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Notation" class="control-label"></label>
-                <input asp-for="Notation" class="form-control" />
-                <span asp-validation-for="Notation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Example" class="control-label"></label>
-                <input asp-for="Example" class="form-control" />
-                <span asp-validation-for="Example" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Template" class="control-label"></label>
-                <input asp-for="Template" class="form-control" />
-                <span asp-validation-for="Template" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Level" class="control-label"></label>
-                <input asp-for="Level" class="form-control" />
-                <span asp-validation-for="Level" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+             <h2>Create</h2>
+            <h4>ProblemViewModel</h4>
+        </div>
     </div>
+    
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
+<hr />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Condition" class="control-label"></label>
+                    <input asp-for="Condition" class="form-control" />
+                    <span asp-validation-for="Condition" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Notation" class="control-label"></label>
+                    <input asp-for="Notation" class="form-control" />
+                    <span asp-validation-for="Notation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Example" class="control-label"></label>
+                    <input asp-for="Example" class="form-control" />
+                    <span asp-validation-for="Example" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Template" class="control-label"></label>
+                    <input asp-for="Template" class="form-control" />
+                    <span asp-validation-for="Template" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Level" class="control-label"></label>
+                    <input asp-for="Level" class="form-control" />
+                    <span asp-validation-for="Level" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="lets-hire" style="display: inline-block; margin-bottom: 16px;" />
+                    <a href="../Home"><div class="get-hired" style="display: inline-block; max-width: 265px; margin-left: 75px;">Back to Home</div></a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
